@@ -1,0 +1,181 @@
+{
+  "title": "Argon2id-Shield Storage-Computation Asymmetry",
+  "core": "Argon2id",
+  "parameters": {
+    "time_cost": 3,
+    "mem_base_kb": 65536,
+    "parallelism": 4,
+    "hash_len": 96,
+    "magic": "4132534801"
+  },
+  "levels": {
+    "1": {
+      "name": "Standard",
+      "N_layers": 3,
+      "geometric_factor": 7,
+      "defender_storage_bytes": 239,
+      "attacker_ram_mb": 0.001,
+      "attacker_time_s": 1.324,
+      "attacker_att_sec": 0.75514,
+      "asymmetry_ratio": 3.0,
+      "gpu_rtx4090": {
+        "max_threads": 33294320,
+        "att_sec": 25141782.8992
+      },
+      "layer_breakdown": [
+        {
+          "layer": 0,
+          "mem_kb": 65536,
+          "ram_mb": 0.0,
+          "time_s": 0.174
+        },
+        {
+          "layer": 1,
+          "mem_kb": 131072,
+          "ram_mb": 0.0,
+          "time_s": 0.386
+        },
+        {
+          "layer": 2,
+          "mem_kb": 262144,
+          "ram_mb": 0.0,
+          "time_s": 0.763
+        }
+      ]
+    },
+    "2": {
+      "name": "Reinforced",
+      "N_layers": 4,
+      "geometric_factor": 15,
+      "defender_storage_bytes": 304,
+      "attacker_ram_mb": 0.001,
+      "attacker_time_s": 3.366,
+      "attacker_att_sec": 0.2971,
+      "asymmetry_ratio": 3.0,
+      "gpu_rtx4090": {
+        "max_threads": 24970740,
+        "att_sec": 7418721.9551
+      },
+      "layer_breakdown": [
+        {
+          "layer": 0,
+          "mem_kb": 65536,
+          "ram_mb": 0.0,
+          "time_s": 0.169
+        },
+        {
+          "layer": 1,
+          "mem_kb": 131072,
+          "ram_mb": 0.0,
+          "time_s": 0.367
+        },
+        {
+          "layer": 2,
+          "mem_kb": 262144,
+          "ram_mb": 0.0,
+          "time_s": 0.759
+        },
+        {
+          "layer": 3,
+          "mem_kb": 524288,
+          "ram_mb": 0.0,
+          "time_s": 2.072
+        }
+      ]
+    },
+    "3": {
+      "name": "Maximum",
+      "N_layers": 5,
+      "geometric_factor": 31,
+      "defender_storage_bytes": 369,
+      "attacker_ram_mb": 0.001,
+      "attacker_time_s": 9.997,
+      "attacker_att_sec": 0.10003,
+      "asymmetry_ratio": 3.0,
+      "gpu_rtx4090": {
+        "max_threads": 19976592,
+        "att_sec": 1998308.173
+      },
+      "layer_breakdown": [
+        {
+          "layer": 0,
+          "mem_kb": 65536,
+          "ram_mb": 0.0,
+          "time_s": 0.17
+        },
+        {
+          "layer": 1,
+          "mem_kb": 131072,
+          "ram_mb": 0.0,
+          "time_s": 0.363
+        },
+        {
+          "layer": 2,
+          "mem_kb": 262144,
+          "ram_mb": 0.0,
+          "time_s": 0.767
+        },
+        {
+          "layer": 3,
+          "mem_kb": 524288,
+          "ram_mb": 0.0,
+          "time_s": 1.584
+        },
+        {
+          "layer": 4,
+          "mem_kb": 1048576,
+          "ram_mb": 0.0,
+          "time_s": 7.112
+        }
+      ]
+    }
+  },
+  "defender": {
+    "mem_cost_kb": 65536,
+    "peak_ram_mb": 0.01,
+    "time_s": 0.417
+  },
+  "roundtrip": {
+    "level": 2,
+    "plaintext": "Hello, Abyss.",
+    "ciphertext_bytes": 304,
+    "match": true
+  },
+  "comparison": {
+    "argon2id_alone": {
+      "oracle": true,
+      "ram_per_att_mb": 64.0,
+      "geometric_factor": 1
+    },
+    "argon2id_shield_L3": {
+      "oracle": false,
+      "ram_per_att_mb": 0.001,
+      "geometric_factor": 31,
+      "asymmetry_ratio": 3.0
+    }
+  },
+  "test_vectors": {
+    "V1_KDF_BASE": {
+      "password": "FractalShield_TestVector_v1",
+      "salt_hex": "000102030405060708090a0b0c0d0e0f",
+      "mem_cost_kb": 65536,
+      "output_hex": "af70237a14dcd326c59010b798dff4b7df2edf7f60854a98bb6daa1d9fc833c1c00381358092cbf86fb342c4ae2adbfea697a4b69dc9933d1b9c0f225acadcc9ef65aa559279395dd593c0a0e1a9bfa0d7d2bb4e1dfd1989c244e2da124e9b6e"
+    },
+    "V2_KDF_2X": {
+      "mem_cost_kb": 131072,
+      "output_hex": "5e7588ffb4528a449f0260eac45a67ed9f21b8f29dd992f913f7455373f4ed32495fff5d3b3079698f71e4cd51dadda65205b13ef626d5908d4b01218b377bb05a3977434f4c615667a2465c120b0940103926d2a6ae93cb73391835b8af022f",
+      "avalanche_pct": 51.82
+    },
+    "V3_KEYSTREAM": {
+      "dk_hex": "af70237a14dcd326c59010b798dff4b7df2edf7f60854a98bb6daa1d9fc833c1c00381358092cbf86fb342c4ae2adbfea697a4b69dc9933d1b9c0f225acadcc9",
+      "iv_hex": "101112131415161718191a1b1c1d1e1f",
+      "keystream_hex": "df4a7aa668f717e62a241aef28e9feebdfc0dc889c35a3b61d82acc079be40830dfa346cbe08ce51ae1352c2ce6f6f51e105a68a5b7b29bdbd8a8ca393ef14bc"
+    },
+    "V4_MAGIC": {
+      "magic_hex": "4132534801",
+      "padded_hex": "413253480148656c6c6f2c2041627973732e0e0e0e0e0e0e0e0e0e0e0e0e0e0e",
+      "check_correct": true,
+      "check_wrong": false
+    }
+  }
+}
