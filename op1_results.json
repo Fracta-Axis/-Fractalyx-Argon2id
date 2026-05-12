@@ -1,0 +1,26 @@
+{
+  "1": {
+    "degree": 3,
+    "coeff_x0_pow_deg_in_Gx": "921/1000000",
+    "coeff_x0_pow_deg_in_DG": "921/1000000",
+    "coeff_u0_pow_deg_in_DG": "-921/1000000",
+    "DG_is_zero_polynomial": false,
+    "conclusion": "\u0394G \u2260 0  \u2192  G is injective (Schwartz-Zippel)"
+  },
+  "2": {
+    "degree": 9,
+    "coeff_x0_pow_deg_in_Gx": "719512794081/1000000000000000000000000",
+    "coeff_x0_pow_deg_in_DG": "719512794081/1000000000000000000000000",
+    "coeff_u0_pow_deg_in_DG": "-719512794081/1000000000000000000000000",
+    "DG_is_zero_polynomial": false,
+    "conclusion": "\u0394G \u2260 0  \u2192  G is injective (Schwartz-Zippel)"
+  },
+  "schwartz_zippel": {
+    "M0": 256,
+    "N": 512,
+    "log2_degree": 405.75,
+    "log2_probability_bound": -105.2,
+    "probability_exponent_approx": -105,
+    "conclusion": "Pr[collision] < 2^{-105} = negl(kappa=512)"
+  }
+}

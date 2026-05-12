@@ -1,0 +1,26 @@
+{
+  "part_A": {
+    "n_trials": 10,
+    "coverage_mean_pct": 57.3,
+    "coverage_std_pct": 10.5,
+    "match_no_scratch_mean_pct": 0.9,
+    "diverge_at_iter_mean": 1.0,
+    "random_baseline_pct": 0.39,
+    "conclusion": "idx_i is unpredictable from iter 1 without the full scratchpad. Match rate \u2248 random baseline (1/M), confirming data-dependency."
+  },
+  "part_B": {
+    "DAG_depth": 256,
+    "DAG_indegree_max": 2,
+    "pebbling_lower_bound_path": "Omega(sqrt(256)) = Omega(16)",
+    "pebbling_lower_bound_data_dep": "Omega(256)",
+    "scratchpad_MB": 8.0,
+    "reduction": "MFSU Phase 2 breakable < Omega(M) RAM => Argon2id breakable < Omega(M) RAM => contradiction A-S 2015"
+  },
+  "part_C": {
+    "H_inf_phase1": 512,
+    "H_inf_phase2_preserved": true,
+    "reason": "injectivity of update (OP1) + Lemma 6.1",
+    "H_inf_phase3": ">=128",
+    "conclusion": "H_inf(MFSU-KDF | pwd) >= 128  [conditional on OP1 + ROM]"
+  }
+}
