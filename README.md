@@ -282,7 +282,7 @@ We explicitly invite public cryptanalysis.
 
 | Document | Description |
 |----------|-------------|
-| [`fractalshield_argon2id_v11.pdf`](papers/ofv_argoin2id_miguel_franco_v1(1).pdf) | Main paper — Argon2id instantiation, full proofs |
+| [`fractalshield_argon2id_v11.pdf`](papers/ofv_argoin2id_miguel_franco_v1.pdf) | Main paper — Argon2id instantiation, full proofs |
 | [`CORELAWS_VOL_1_2.pdf`](papers/CORELAWS_VOL_1_2.pdf) | Technical Note — C1–C4 formal specification, OP1–OP10 |
 | [`fractalshield_v1.pdf`](papers/fractalshield_v1.pdf) | Original FractalShield preprint (MFSU-Crypt core) |
 
