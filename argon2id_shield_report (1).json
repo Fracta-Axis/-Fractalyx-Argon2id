@@ -1,0 +1,74 @@
+{
+  "title": "FractalShield-Argon2id Reference Implementation Report",
+  "version": "v1.1",
+  "core": "Argon2id",
+  "parameters": {
+    "time_base": 3,
+    "mem_cost_kb": 65536,
+    "parallelism": 4,
+    "hash_len": 96,
+    "magic_hex": "4132534801"
+  },
+  "test_vectors": {
+    "V1_KDF_BASE": {
+      "time_cost": 3,
+      "mem_cost_kb": 65536,
+      "output_hex": "af70237a14dcd326c59010b798dff4b7df2edf7f60854a98bb6daa1d9fc833c1c00381358092cbf86fb342c4ae2adbfea697a4b69dc9933d1b9c0f225acadcc9ef65aa559279395dd593c0a0e1a9bfa0d7d2bb4e1dfd1989c244e2da124e9b6e",
+      "output_len": 96
+    },
+    "V2_KDF_2X": {
+      "time_cost": 6,
+      "output_hex": "99bed37245fc14265a5dc27e48b4cc5fdcf2fd0e5ffb76d2fa781a216f6fbb321283ed703f6ac510af22707ffbe93ea5de76005b0acbbe5170e2ccf6ac685b82d3128314f0dc91a059bcdb5befe0e445ef0cc7c9716ecd2dfee7302437981426",
+      "avalanche_pct": 49.74,
+      "c1_pass": true
+    },
+    "V3_KEYSTREAM": {
+      "dk_hex": "af70237a14dcd326c59010b798dff4b7df2edf7f60854a98bb6daa1d9fc833c1c00381358092cbf86fb342c4ae2adbfea697a4b69dc9933d1b9c0f225acadcc9",
+      "iv_hex": "101112131415161718191a1b1c1d1e1f",
+      "length": 64,
+      "keystream_hex": "df4a7aa668f717e62a241aef28e9feebdfc0dc889c35a3b61d82acc079be40830dfa346cbe08ce51ae1352c2ce6f6f51e105a68a5b7b29bdbd8a8ca393ef14bc"
+    },
+    "V4_AVALANCHE": {
+      "bits_changed": 269,
+      "total_bits": 512,
+      "percentage": 52.54,
+      "ks_original_hex": "df4a7aa668f717e62a241aef28e9feebdfc0dc889c35a3b61d82acc079be40830dfa346cbe08ce51ae1352c2ce6f6f51e105a68a5b7b29bdbd8a8ca393ef14bc",
+      "ks_modified_hex": "90a7128ebb1dc7d71cbefea9098ef1d7f834966d8cd2d015932c1255acad0b656f92da5ae62a32fd67ab797bb1c292cb592a3a0e61ac530c66a162290e3794a1",
+      "c1_pass": false
+    },
+    "V5_MAGIC": {
+      "magic_hex": "4132534801",
+      "padded_hex": "413253480148656c6c6f2c2041627973732e0e0e0e0e0e0e0e0e0e0e0e0e0e0e",
+      "check_correct": true,
+      "check_wrong": false
+    },
+    "V6_HMAC": {
+      "k_mac_hex": "ead62d206ae0ec7022cd77b9a2d714fdc4cf3538c716e09268065f7d0fab0e8a",
+      "body_hex": "4672616374616c536869656c64207465737420626f6479",
+      "body_ascii": "FractalShield test body",
+      "tag_hex": "157f048f535ca03b0fe7bd84b2483fab0fdf2ea83d30961ea0ec20e8edaeb34f"
+    },
+    "V7_ROUNDTRIP_L1": {
+      "ciphertext_bytes": 255,
+      "plaintext_match": true,
+      "wrong_password_raises": true
+    },
+    "V7_ROUNDTRIP_L2": {
+      "ciphertext_bytes": 320,
+      "plaintext_match": true,
+      "wrong_password_raises": true
+    },
+    "V7_ROUNDTRIP_L3": {
+      "ciphertext_bytes": 385,
+      "plaintext_match": true,
+      "wrong_password_raises": true
+    },
+    "V8_REPLAY": {
+      "sid1_hex": "390c8c7d7247342cd8100f2f6f770d65",
+      "sid2_hex": "d670e58e0351d8ae8e4f6eac342fc231",
+      "k_mac1_hex": "dadb955407806d96da8e23abd01f3a5eb1f307aa1bd159ec3173b94f94e8323c",
+      "k_mac2_hex": "faf27dc2debe889a6d9fa008a038285db6ea14ce1208c8e66ea2ae615f547f71",
+      "keys_differ": true
+    }
+  }
+}

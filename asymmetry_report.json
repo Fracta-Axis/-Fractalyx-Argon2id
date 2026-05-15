@@ -1,0 +1,161 @@
+{
+  "title": "FractalShield-Argon2id Storage-Computation Asymmetry",
+  "theorem": "Theorem E.1 \u2014 Preprint v1.1",
+  "core": "Argon2id",
+  "parameters": {
+    "time_base": 3,
+    "mem_cost_kb": 65536,
+    "parallelism": 4,
+    "gpu_vram_gb": 24
+  },
+  "messages": {
+    "13B (Hello, Abyss.)": {
+      "1": {
+        "name": "Standard",
+        "N_layers": 3,
+        "geometric_factor": 7,
+        "defender_storage_bytes": 255,
+        "attacker_ram_mb_theoretical": 192.0,
+        "attacker_time_s": 1.2271,
+        "attacker_att_per_sec": 0.81493,
+        "asymmetry_ratio": 789516.0,
+        "gpu_rtx4090": {
+          "vram_gb": 24,
+          "max_threads": 384,
+          "projected_att_per_sec": 312.933
+        }
+      },
+      "2": {
+        "name": "Reinforced",
+        "N_layers": 4,
+        "geometric_factor": 15,
+        "defender_storage_bytes": 320,
+        "attacker_ram_mb_theoretical": 256.0,
+        "attacker_time_s": 2.5435,
+        "attacker_att_per_sec": 0.39316,
+        "asymmetry_ratio": 838861.0,
+        "gpu_rtx4090": {
+          "vram_gb": 24,
+          "max_threads": 384,
+          "projected_att_per_sec": 150.973
+        }
+      },
+      "3": {
+        "name": "Maximum",
+        "N_layers": 5,
+        "geometric_factor": 31,
+        "defender_storage_bytes": 385,
+        "attacker_ram_mb_theoretical": 320.0,
+        "attacker_time_s": 5.0899,
+        "attacker_att_per_sec": 0.19647,
+        "asymmetry_ratio": 871544.0,
+        "gpu_rtx4090": {
+          "vram_gb": 24,
+          "max_threads": 384,
+          "projected_att_per_sec": 75.444
+        }
+      }
+    },
+    "1 KB": {
+      "1": {
+        "name": "Standard",
+        "N_layers": 3,
+        "geometric_factor": 7,
+        "defender_storage_bytes": 3279,
+        "attacker_ram_mb_theoretical": 192.0,
+        "attacker_time_s": 1.2271,
+        "attacker_att_per_sec": 0.81493,
+        "asymmetry_ratio": 61399.0,
+        "gpu_rtx4090": {
+          "vram_gb": 24,
+          "max_threads": 384,
+          "projected_att_per_sec": 312.933
+        }
+      },
+      "2": {
+        "name": "Reinforced",
+        "N_layers": 4,
+        "geometric_factor": 15,
+        "defender_storage_bytes": 4352,
+        "attacker_ram_mb_theoretical": 256.0,
+        "attacker_time_s": 2.5435,
+        "attacker_att_per_sec": 0.39316,
+        "asymmetry_ratio": 61681.0,
+        "gpu_rtx4090": {
+          "vram_gb": 24,
+          "max_threads": 384,
+          "projected_att_per_sec": 150.973
+        }
+      },
+      "3": {
+        "name": "Maximum",
+        "N_layers": 5,
+        "geometric_factor": 31,
+        "defender_storage_bytes": 5425,
+        "attacker_ram_mb_theoretical": 320.0,
+        "attacker_time_s": 5.0899,
+        "attacker_att_per_sec": 0.19647,
+        "asymmetry_ratio": 61851.0,
+        "gpu_rtx4090": {
+          "vram_gb": 24,
+          "max_threads": 384,
+          "projected_att_per_sec": 75.444
+        }
+      }
+    }
+  },
+  "levels": {},
+  "timing": {
+    "0": {
+      "time_cost": 3,
+      "min_time_s": 0.2002,
+      "ratio_vs_base": 1.0,
+      "ram_mb": 64.0
+    },
+    "1": {
+      "time_cost": 6,
+      "min_time_s": 0.3558,
+      "ratio_vs_base": 1.78,
+      "ram_mb": 64.0
+    },
+    "2": {
+      "time_cost": 12,
+      "min_time_s": 0.6711,
+      "ratio_vs_base": 3.35,
+      "ram_mb": 64.0
+    },
+    "3": {
+      "time_cost": 24,
+      "min_time_s": 1.3164,
+      "ratio_vs_base": 6.58,
+      "ram_mb": 64.0
+    },
+    "4": {
+      "time_cost": 48,
+      "min_time_s": 2.5464,
+      "ratio_vs_base": 12.73,
+      "ram_mb": 64.0
+    }
+  },
+  "defender": {
+    "time_cost": 3,
+    "min_time_s": 0.2001,
+    "avg_time_s": 0.2083,
+    "ram_kb": 65536,
+    "att_per_sec": 4.801,
+    "note": "Legitimate user always decrypts at this cost (1\u00d7 C_base)"
+  },
+  "comparison": {
+    "argon2id_alone": {
+      "oracle": true,
+      "ram_per_att_mb": 64.0,
+      "geometric_factor": 1
+    },
+    "argon2id_shield_L3_1KB": {
+      "oracle": false,
+      "ram_per_att_mb": 320.0,
+      "geometric_factor": 31,
+      "asymmetry_ratio": 61851.0
+    }
+  }
+}
